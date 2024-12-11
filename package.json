@@ -1,0 +1,12 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "startdev": "docker compose -f docker-compose.dev.yml up --build",
+    "startprod": "docker compose -f docker-compose.prod.yml up --build"
+  },
+  "author": "",
+  "license": "ISC"
+}
