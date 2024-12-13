@@ -1,9 +1,9 @@
 import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
-class User {
+class Post {
   @Field()
-  email: string;
+  content: string;
 }
 
-export default User;
+export default Post;
