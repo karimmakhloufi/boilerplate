@@ -8,6 +8,8 @@ services:
       interval: 1s
       timeout: 2s
       retries: 100
+    env_file:
+      - .env
 
   apigateway:
     build:
@@ -18,3 +20,13 @@ services:
         condition: service_healthy
     ports:
       - 7000:80
+
+  db:
+    image: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d postgres -U postgres"]
+      interval: 1s
+      timeout: 2s
+      retries: 100
+    env_file:
+      - .env

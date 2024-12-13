@@ -1,11 +1,13 @@
 import "reflect-metadata";
+import "dotenv/config";
 import { buildSchema } from "type-graphql";
 import PostResolver from "./resolver/PostResolver";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
+import { dataSource } from "./config/db";
 
-console.log("hello world");
 const start = async () => {
+  await dataSource.initialize();
   const schema = await buildSchema({
     resolvers: [PostResolver],
   });
